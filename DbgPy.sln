@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PyDbg", "PyDbg\PyDbg.vcxproj", "{60A1DD45-3E56-479E-9FE4-A7AB08BE98F5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PyDbgTest", "PyDbgTest\PyDbgTest.vcxproj", "{83F391EA-162B-4E0B-AD82-7A6CF368F528}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample1_unittest", "googletest_prj\sample1_unittest.vcxproj", "{3584C5C4-3923-3921-8E50-07D18B86D431}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF5DAB11-F405-3711-9A71-FAC5DF91B226} = {AF5DAB11-F405-3711-9A71-FAC5DF91B226}
+		{029BD314-B7F0-393D-912C-C4D90267C546} = {029BD314-B7F0-393D-912C-C4D90267C546}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest", "googletest_prj\gtest.vcxproj", "{029BD314-B7F0-393D-912C-C4D90267C546}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest_main", "googletest_prj\gtest_main.vcxproj", "{AF5DAB11-F405-3711-9A71-FAC5DF91B226}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60A1DD45-3E56-479E-9FE4-A7AB08BE98F5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{60A1DD45-3E56-479E-9FE4-A7AB08BE98F5}.Debug|Win32.Build.0 = Debug|Win32
+		{60A1DD45-3E56-479E-9FE4-A7AB08BE98F5}.Release|Win32.ActiveCfg = Release|Win32
+		{60A1DD45-3E56-479E-9FE4-A7AB08BE98F5}.Release|Win32.Build.0 = Release|Win32
+		{83F391EA-162B-4E0B-AD82-7A6CF368F528}.Debug|Win32.ActiveCfg = Debug|Win32
+		{83F391EA-162B-4E0B-AD82-7A6CF368F528}.Debug|Win32.Build.0 = Debug|Win32
+		{83F391EA-162B-4E0B-AD82-7A6CF368F528}.Release|Win32.ActiveCfg = Release|Win32
+		{83F391EA-162B-4E0B-AD82-7A6CF368F528}.Release|Win32.Build.0 = Release|Win32
+		{3584C5C4-3923-3921-8E50-07D18B86D431}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3584C5C4-3923-3921-8E50-07D18B86D431}.Debug|Win32.Build.0 = Debug|Win32
+		{3584C5C4-3923-3921-8E50-07D18B86D431}.Release|Win32.ActiveCfg = Release|Win32
+		{3584C5C4-3923-3921-8E50-07D18B86D431}.Release|Win32.Build.0 = Release|Win32
+		{029BD314-B7F0-393D-912C-C4D90267C546}.Debug|Win32.ActiveCfg = Debug|Win32
+		{029BD314-B7F0-393D-912C-C4D90267C546}.Debug|Win32.Build.0 = Debug|Win32
+		{029BD314-B7F0-393D-912C-C4D90267C546}.Release|Win32.ActiveCfg = Release|Win32
+		{029BD314-B7F0-393D-912C-C4D90267C546}.Release|Win32.Build.0 = Release|Win32
+		{AF5DAB11-F405-3711-9A71-FAC5DF91B226}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AF5DAB11-F405-3711-9A71-FAC5DF91B226}.Debug|Win32.Build.0 = Debug|Win32
+		{AF5DAB11-F405-3711-9A71-FAC5DF91B226}.Release|Win32.ActiveCfg = Release|Win32
+		{AF5DAB11-F405-3711-9A71-FAC5DF91B226}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

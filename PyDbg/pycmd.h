@@ -1,0 +1,7 @@
+#pragma once
+
+HRESULT CALLBACK help(PDEBUG_CLIENT4 Client, PCSTR args);
+
+HRESULT CALLBACK pyobj(PDEBUG_CLIENT4 Client, PCSTR args);
+
+HRESULT CALLBACK pyframe(PDEBUG_CLIENT4 Client, PCSTR args);
