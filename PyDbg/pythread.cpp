@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "dbghelper.h"
 #include "pyenv.h"
-#include "pyhelper.h"
+#include "pyobjimpl.h"
 #include "pycmd.h"
 #include "pyobject.h"
 #include "pyframe.h"

@@ -89,9 +89,9 @@
     <ClInclude Include="PyDbg.h" />
     <ClInclude Include="pyenv.h" />
     <ClInclude Include="pyframe.h" />
-    <ClInclude Include="pyhelper.h" />
     <ClInclude Include="pyobj.h" />
     <ClInclude Include="pyobject.h" />
+    <ClInclude Include="pyobjimpl.h" />
     <ClInclude Include="pythread.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -104,9 +104,9 @@
     <ClCompile Include="PyDbg.cpp" />
     <ClCompile Include="pyenv.cpp" />
     <ClCompile Include="pyframe.cpp" />
-    <ClCompile Include="pyhelper.cpp" />
     <ClCompile Include="pyobj.cpp" />
     <ClCompile Include="pyobject.cpp" />
+    <ClCompile Include="pyobjimpl.cpp" />
     <ClCompile Include="pythread.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

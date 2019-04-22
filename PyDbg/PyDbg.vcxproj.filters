@@ -36,16 +36,7 @@
     <ClInclude Include="dbghelper.h">
       <Filter>impl</Filter>
     </ClInclude>
-    <ClInclude Include="pyobjdef.h">
-      <Filter>impl</Filter>
-    </ClInclude>
-    <ClInclude Include="pyobject.h">
-      <Filter>impl</Filter>
-    </ClInclude>
     <ClInclude Include="pyenv.h">
-      <Filter>impl</Filter>
-    </ClInclude>
-    <ClInclude Include="pyhelper.h">
       <Filter>impl</Filter>
     </ClInclude>
     <ClInclude Include="pyframe.h">
@@ -63,6 +54,15 @@
     <ClInclude Include="test_pydml.h">
       <Filter>impl\cmd</Filter>
     </ClInclude>
+    <ClInclude Include="pyobjimpl.h">
+      <Filter>impl\cmd</Filter>
+    </ClInclude>
+    <ClInclude Include="pyobjdef.h">
+      <Filter>impl\cmd</Filter>
+    </ClInclude>
+    <ClInclude Include="pyobject.h">
+      <Filter>impl\cmd</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dbghelper.cpp">
@@ -74,13 +74,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="pyobject.cpp">
-      <Filter>impl</Filter>
-    </ClCompile>
     <ClCompile Include="pyenv.cpp">
-      <Filter>impl</Filter>
-    </ClCompile>
-    <ClCompile Include="pyhelper.cpp">
       <Filter>impl</Filter>
     </ClCompile>
     <ClCompile Include="pyframe.cpp">
@@ -96,6 +90,12 @@
       <Filter>impl\cmd</Filter>
     </ClCompile>
     <ClCompile Include="test_pydml.cpp">
+      <Filter>impl\cmd</Filter>
+    </ClCompile>
+    <ClCompile Include="pyobjimpl.cpp">
+      <Filter>impl\cmd</Filter>
+    </ClCompile>
+    <ClCompile Include="pyobject.cpp">
       <Filter>impl\cmd</Filter>
     </ClCompile>
   </ItemGroup>

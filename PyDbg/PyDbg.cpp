@@ -1,8 +1,7 @@
 #include "stdafx.h"
 #include "dbghelper.h"
-#include "pyobjdef.h"
 #include "pyenv.h"
-#include "pyhelper.h"
+#include "pyobjimpl.h"
 
 WINDBG_EXTENSION_APIS   ExtensionApis;
 

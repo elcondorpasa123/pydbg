@@ -3,7 +3,7 @@
 #include "dbghelper.h"
 #include "pyenv.h"
 #include "pyobject.h"
-#include "pyhelper.h"
+#include "pyobjimpl.h"
 
 #define OFFSET(TYPE, MEMBER) ((unsigned long)(&(((TYPE *)0)->MEMBER)))
 
@@ -602,6 +602,12 @@ bool dbg_pyobject_frame(ULONG_PTR addr, int indent /* = 0 */, int nestlevel /* =
 
 		myprintex(indent, "	-f_code at 0x%08x:\n", pyObj.get("f_code"));
 		dbg_pyobject((ULONG_PTR)pyObj.get("f_code"), indent+1, nestlevel);
+		myprintex(indent, "	-f_builtins at 0x%08x:\n", pyObj.get("f_builtins"));
+		dbg_pyobject((ULONG_PTR)pyObj.get("f_builtins"), indent+1, nestlevel);
+		myprintex(indent, "	-f_globals at 0x%08x:\n", pyObj.get("f_globals"));
+		dbg_pyobject((ULONG_PTR)pyObj.get("f_globals"), indent+1, nestlevel);
+		myprintex(indent, "	-f_locals at 0x%08x:\n", pyObj.get("f_locals"));
+		dbg_pyobject((ULONG_PTR)pyObj.get("f_locals"), indent+1, nestlevel);
 		return true;
 	}
 	else
