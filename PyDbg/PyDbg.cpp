@@ -27,6 +27,7 @@ IDebugControl* g_pDebugControl = NULL;
 IDebugDataSpaces* g_pDebugDataSpaces = NULL;
 IDebugSymbols* g_pDebugSymbols = NULL;
 IDebugSymbols3* g_pDebugSymbols3 = NULL;
+IDebugSystemObjects* g_pDebugSystemObjects = NULL;
 
 #define SAFE_RELEASE(p)	\
 	if (p)	\
@@ -42,6 +43,7 @@ void UninitDebugService()
 	SAFE_RELEASE(g_pDebugDataSpaces);
 	SAFE_RELEASE(g_pDebugSymbols);
 	SAFE_RELEASE(g_pDebugSymbols3);
+	SAFE_RELEASE(g_pDebugSystemObjects);
 }
 
 bool InitDebugService()
@@ -70,6 +72,10 @@ bool InitDebugService()
 			break;
 
 		hr = g_pDebugClient->QueryInterface(__uuidof(IDebugSymbols3), (void**)&g_pDebugSymbols3);
+		if (hr != S_OK)
+			break;
+
+		hr = g_pDebugClient->QueryInterface(__uuidof(IDebugSystemObjects), (void**)&g_pDebugSystemObjects);
 		if (hr != S_OK)
 			break;
 	} while (false);

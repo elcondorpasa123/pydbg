@@ -38,6 +38,17 @@ std::string w2a(std::wstring strIn)
 	return strRet;
 }
 
+std::string fmt(char* fmt, ...)
+{
+	char buffer[200] = {0};
+	va_list argptr;
+	int cnt;
+	va_start(argptr, fmt);
+	cnt = StringCbVPrintfA(buffer,200-1, fmt, argptr);
+	va_end(argptr);
+	return std::string(buffer);
+}
+
 char const* indent_str = "	";
 
 void myprintex(int indent, char* fmt, ...)

@@ -3,6 +3,8 @@
 std::wstring a2w(std::string strIn);
 std::string w2a(std::wstring strIn);
 
+std::string fmt(char* fmt, ...);
+
 void myprintex(int indent, char* fmt, ...);
 void myprintwex(int indent, wchar_t* fmt, ...);
 void myprint(char *fmt, ...);
