@@ -50,6 +50,8 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PYDBG_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)inc</AdditionalIncludeDirectories>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -86,23 +88,31 @@
     <ClInclude Include="pycmd.h" />
     <ClInclude Include="PyDbg.h" />
     <ClInclude Include="pyenv.h" />
+    <ClInclude Include="pyframe.h" />
     <ClInclude Include="pyhelper.h" />
+    <ClInclude Include="pyobj.h" />
     <ClInclude Include="pyobject.h" />
+    <ClInclude Include="pythread.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="pyobjdef.h" />
+    <ClInclude Include="test_pydml.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dbghelper.cpp" />
     <ClCompile Include="pycmd.cpp" />
     <ClCompile Include="PyDbg.cpp" />
     <ClCompile Include="pyenv.cpp" />
+    <ClCompile Include="pyframe.cpp" />
     <ClCompile Include="pyhelper.cpp" />
+    <ClCompile Include="pyobj.cpp" />
     <ClCompile Include="pyobject.cpp" />
+    <ClCompile Include="pythread.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="test_pydml.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

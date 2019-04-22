@@ -581,6 +581,7 @@ bool dbg_pyobject_code(ULONG_PTR addr, int indent /* = 0 */, int nestlevel /* = 
 		dbg_pyobject((ULONG_PTR)pyObj.get("co_filename"), indent+1, nestlevel);
 
 		myprintex(indent+1, "line: %d\n", pyObj.get("co_firstlineno"));
+		return true;
 	}
 	else
 	{
@@ -601,6 +602,7 @@ bool dbg_pyobject_frame(ULONG_PTR addr, int indent /* = 0 */, int nestlevel /* =
 
 		myprintex(indent, "	-f_code at 0x%08x:\n", pyObj.get("f_code"));
 		dbg_pyobject((ULONG_PTR)pyObj.get("f_code"), indent+1, nestlevel);
+		return true;
 	}
 	else
 	{
@@ -621,6 +623,7 @@ bool dbg_pyobject_file(ULONG_PTR addr, int indent /* = 0 */, int nestlevel /* = 
 
 		myprintex(indent, "	-f_name at 0x%08x:\n", pyObj.get("f_name"));
 		dbg_pyobject((ULONG_PTR)pyObj.get("f_name"), indent+1, nestlevel);
+		return true;
 	}
 	else
 	{

@@ -38,7 +38,7 @@ std::string w2a(std::wstring strIn)
 	return strRet;
 }
 
-std::string fmt(char* fmt, ...)
+std::string strfmt(char* fmt, ...)
 {
 	char buffer[200] = {0};
 	va_list argptr;

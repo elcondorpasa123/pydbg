@@ -35,6 +35,7 @@ extern IDebugControl* g_pDebugControl;
 extern IDebugDataSpaces* g_pDebugDataSpaces;
 extern IDebugSymbols* g_pDebugSymbols;
 extern IDebugSymbols3* g_pDebugSymbols3;
+extern IDebugSystemObjects* g_pDebugSystemObjects;
 
 typedef int ssize_t;
 typedef ssize_t         Py_ssize_t;

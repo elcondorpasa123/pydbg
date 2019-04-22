@@ -13,6 +13,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="impl\cmd">
+      <UniqueIdentifier>{3a98f2f5-f26d-43a8-891b-a479b81c471f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -45,8 +48,20 @@
     <ClInclude Include="pyhelper.h">
       <Filter>impl</Filter>
     </ClInclude>
+    <ClInclude Include="pyframe.h">
+      <Filter>impl\cmd</Filter>
+    </ClInclude>
+    <ClInclude Include="pythread.h">
+      <Filter>impl\cmd</Filter>
+    </ClInclude>
+    <ClInclude Include="pyobj.h">
+      <Filter>impl\cmd</Filter>
+    </ClInclude>
     <ClInclude Include="pycmd.h">
-      <Filter>impl</Filter>
+      <Filter>impl\cmd</Filter>
+    </ClInclude>
+    <ClInclude Include="test_pydml.h">
+      <Filter>impl\cmd</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,8 +83,20 @@
     <ClCompile Include="pyhelper.cpp">
       <Filter>impl</Filter>
     </ClCompile>
+    <ClCompile Include="pyframe.cpp">
+      <Filter>impl\cmd</Filter>
+    </ClCompile>
+    <ClCompile Include="pythread.cpp">
+      <Filter>impl\cmd</Filter>
+    </ClCompile>
+    <ClCompile Include="pyobj.cpp">
+      <Filter>impl\cmd</Filter>
+    </ClCompile>
     <ClCompile Include="pycmd.cpp">
-      <Filter>impl</Filter>
+      <Filter>impl\cmd</Filter>
+    </ClCompile>
+    <ClCompile Include="test_pydml.cpp">
+      <Filter>impl\cmd</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
