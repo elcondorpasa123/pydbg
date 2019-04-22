@@ -5,16 +5,16 @@
 #include "pycmd.h"
 #include "pyobject.h"
 
-HRESULT CALLBACK pyframe_impl(ULONG_PTR Address)
+void pyframe_impl(ULONG_PTR Address)
 {
 	PPyFrameObject pyFrameObj;
 	if (!pyFrameObj.valid())
-		return E_INVALIDARG;
+		return;
 
 	if (!pyFrameObj.read(Address))
 	{
 		myprint("fail to read pyframeobject  at 0x%08x:\n", Address);
-		return E_INVALIDARG;
+		return;
 	}
 
 	do 
@@ -45,7 +45,7 @@ HRESULT CALLBACK pyframe_impl(ULONG_PTR Address)
 			break;
 		}
 	} while (true);
-	return S_OK;
+	return;
 }
 
 HRESULT CALLBACK pyframe(PDEBUG_CLIENT4 Client, PCSTR args)
@@ -61,7 +61,8 @@ HRESULT CALLBACK pyframe(PDEBUG_CLIENT4 Client, PCSTR args)
 	if (!Address)
 		return E_INVALIDARG;
 
-	return pyframe_impl(Address);
+	pyframe_impl(Address);
+	return S_OK;
 }
 
 REGCMD(pyframe, "<b>!pyframe <addr></b>\n"
