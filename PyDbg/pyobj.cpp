@@ -120,4 +120,6 @@ HRESULT CALLBACK pyobj(PDEBUG_CLIENT4 Client, PCSTR args)
 	return S_OK;
 }
 
-REGCMD(pyobj, "!pyobj <addr> [-r[depth]]	- Dump PyObject at given address. r: recursion-level.");
+REGCMD(pyobj, "<b>!pyobj <addr> [-r depth]</b>\n"
+	"\t\tDump PyObject at given address. \n"
+	"\t\t r: recursion-level.");

@@ -24,12 +24,8 @@ HRESULT CALLBACK help(PDEBUG_CLIENT4 Client, PCSTR args)
 		content.append(*iter);
 		content.append("\n");
 	}
-	dprintf(content.c_str());
-// 	dprintf("Help for PyDbg.dll\n"
-// 		"	help	- Shows help\n"
-// 		"	pyobj <addr> [-r[depth]]	- Dump PyObject at given address. r: recursion-level\n"
-// 		"	pyframe <addr> [-r[depth]]	- Analyze Python StackFrame.\n"
-// 		"	pythread [threadid] [threadsysid] - Output Python Threads.\n"
-// 		);
+	g_pDebugControl->ControlledOutput(
+		DEBUG_OUTCTL_AMBIENT_DML, DEBUG_OUTPUT_NORMAL, 
+		content.c_str());
 	return S_OK;
 }

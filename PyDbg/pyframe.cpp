@@ -29,7 +29,7 @@ HRESULT CALLBACK pyframe_impl(ULONG_PTR Address)
 		}
 
 		// 		myprintex(1, "line: %d\n", pyCodeObj.get("co_firstlineno"));
-		myprintex(1, "line:%*d", 4, pyFrameObj.get("f_lineno"));
+		myprintex(0, "line:%*d", 4, pyFrameObj.get("f_lineno"));
 		dbg_pyobject((ULONG_PTR)pyCodeObj.get("co_filename"), 1, 0);
 
 		int f_back = pyFrameObj.get("f_back");
@@ -64,4 +64,5 @@ HRESULT CALLBACK pyframe(PDEBUG_CLIENT4 Client, PCSTR args)
 	return pyframe_impl(Address);
 }
 
-REGCMD(pyframe, "!pyframe <addr> [-r[depth]]	- Analyze Python StackFrame.");
+REGCMD(pyframe, "<b>!pyframe <addr></b>\n"
+	"\t\tAnalyze Python StackFrame.");

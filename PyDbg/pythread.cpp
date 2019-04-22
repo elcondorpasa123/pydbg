@@ -272,6 +272,8 @@ HRESULT pythread_single(ULONG threadId, ULONG threadSysId)
 HRESULT pythread_all_dml()
 {
 	// 1. 输出当前python堆栈
+	g_pDebugControl->ControlledOutput(DEBUG_OUTCTL_AMBIENT_DML,
+		DEBUG_OUTPUT_NORMAL, "<b>current Thread</b>\n");
 	ULONG curThreadId = 0;
 	ULONG curThreadSysId = 0;
 	g_pDebugSystemObjects->GetCurrentThreadId(&curThreadId);
@@ -279,6 +281,8 @@ HRESULT pythread_all_dml()
 	DumpPyStack(curThreadId, curThreadSysId);
 
 	// 2. 其他堆栈以DML格式输出
+	g_pDebugControl->ControlledOutput(DEBUG_OUTCTL_AMBIENT_DML,
+		DEBUG_OUTPUT_NORMAL, "<b>other Threads</b>\n");
 	HRESULT hr = E_FAIL;
 	ULONG threadNumbers = 0;
 	g_pDebugSystemObjects->GetNumberThreads(&threadNumbers);
@@ -307,4 +311,8 @@ HRESULT pythread_all_dml()
 	return S_OK;
 }
 
-REGCMD(pythread, "!pythread [threadid] [threadsysid] - Output Python Threads.");
+REGCMD(pythread, "<b>!pythread [threadid] [threadsysid]</b>\n"
+	"\t\tOutput Python Threads. \n"
+	"\t\tthreadid: threadid in windbg. \n"
+	"\t\tthreadsysid: threadid in windows. \n"
+	"\t\tno args means Output current thread in detail and other threads in DML.");
