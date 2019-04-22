@@ -1,6 +1,5 @@
 #pragma once
 
-void register_cmd(char const* cmdDesc);
 HRESULT CALLBACK help(PDEBUG_CLIENT4 Client, PCSTR args);
 
 class CRegCmd

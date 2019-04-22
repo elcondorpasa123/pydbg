@@ -3,14 +3,10 @@
 #include "dbghelper.h"
 
 std::vector<std::string> AllCmds;
-void register_cmd(char const* cmdDesc)
-{
-	AllCmds.push_back(cmdDesc);
-}
 
 CRegCmd::CRegCmd(const char* cmd)
 {
-	register_cmd(cmd);
+	AllCmds.push_back(cmd);
 }
 
 HRESULT CALLBACK help(PDEBUG_CLIENT4 Client, PCSTR args)

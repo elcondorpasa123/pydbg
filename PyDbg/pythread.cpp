@@ -6,52 +6,48 @@
 #include "pyobject.h"
 #include "pyframe.h"
 
-HRESULT pythread_all_dml();
-HRESULT pythread_single(ULONG threadId, ULONG threadSysId);
-BOOL is_pythonthread(ULONG threadId, ULONG threadSysId);
-
 const int c_n_framesize_per_inc = 20;
 const int c_n_framesize_start = 50;
 HRESULT CALLBACK DumpCStack()
 {
-	HRESULT Status;
-	PDEBUG_STACK_FRAME Frames = NULL;
-	int Count = c_n_framesize_start;
-	Frames = new DEBUG_STACK_FRAME[Count];
+	HRESULT hr;
+	PDEBUG_STACK_FRAME frames = NULL;
+	int count = c_n_framesize_start;
+	frames = new DEBUG_STACK_FRAME[count];
 
 	do 
 	{
-		ULONG Filled;
-		if ((Status = g_pDebugControl->
+		ULONG filled;
+		if ((hr = g_pDebugControl->
 			GetStackTrace(0, 0, 0,
-			Frames, Count, &Filled)) != S_OK)
+			frames, count, &filled)) != S_OK)
 		{
-			myprint("GetStackTrace failed, 0x%X\n", Status);
+			myprint("GetStackTrace failed, 0x%X\n", hr);
 		}
 
-		if (Filled <= Count)
+		if (filled <= count)
 		{
 			break;
 		}
 
-		delete[] Frames;
-		Count += c_n_framesize_per_inc;
-		Frames = new DEBUG_STACK_FRAME[Count];
+		delete[] frames;
+		count += c_n_framesize_per_inc;
+		frames = new DEBUG_STACK_FRAME[count];
 	} while (TRUE);
 
 	// Print the call stack.
-	if ((Status = g_pDebugControl->
-		OutputStackTrace(DEBUG_OUTCTL_ALL_CLIENTS, Frames,
-		Count, DEBUG_STACK_SOURCE_LINE |
+	if ((hr = g_pDebugControl->
+		OutputStackTrace(DEBUG_OUTCTL_ALL_CLIENTS, frames,
+		count, DEBUG_STACK_SOURCE_LINE |
 		DEBUG_STACK_FRAME_ADDRESSES |
 		DEBUG_STACK_COLUMN_NAMES |
 		DEBUG_STACK_PARAMETERS |
 		DEBUG_STACK_FRAME_NUMBERS)) != S_OK)
 	{
-		myprint("OutputStackTrace failed, 0x%X\n", Status);
+		myprint("OutputStackTrace failed, 0x%X\n", hr);
 	}
 
-	delete[] Frames;
+	delete[] frames;
 	return S_OK;
 }
 
@@ -227,33 +223,6 @@ BOOL is_pythonthread(ULONG threadId, ULONG threadSysId)
 	return isPyThread;
 }
 
-HRESULT CALLBACK pythread(PDEBUG_CLIENT4 Client, PCSTR args)
-{
-	if (!g_py_env.ready())
-	{
-		myprint("不支持的python版本");
-		return E_FAIL;
-	}
-
-	ULONG threadId = 0;
-	ULONG threadSysId = 0;
-	if (!pythread_splitargs(args, threadId, threadSysId))
-	{
-		dprintf("invalid argument. \n try !pythread [-s]\n");
-		return E_INVALIDARG;
-	}
-
-	if (!threadId && !threadSysId)
-	{
-		pythread_all_dml();
-	}
-	else
-	{
-		pythread_single(threadId, threadSysId);
-	}
-	return S_OK;
-}
-
 HRESULT pythread_single(ULONG threadId, ULONG threadSysId)
 {
 	HRESULT hr = g_pDebugSystemObjects->SetCurrentThreadId(threadId);
@@ -308,6 +277,33 @@ HRESULT pythread_all_dml()
 	}
 	delete threadIds;
 	delete threadSysIds;
+	return S_OK;
+}
+
+HRESULT CALLBACK pythread(PDEBUG_CLIENT4 Client, PCSTR args)
+{
+	if (!g_py_env.ready())
+	{
+		myprint("不支持的python版本");
+		return E_FAIL;
+	}
+
+	ULONG threadId = 0;
+	ULONG threadSysId = 0;
+	if (!pythread_splitargs(args, threadId, threadSysId))
+	{
+		dprintf("invalid argument. \n try !pythread [-s]\n");
+		return E_INVALIDARG;
+	}
+
+	if (!threadId && !threadSysId)
+	{
+		pythread_all_dml();
+	}
+	else
+	{
+		pythread_single(threadId, threadSysId);
+	}
 	return S_OK;
 }
 
